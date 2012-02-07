@@ -1,0 +1,22 @@
+ # Mr. Hyde is a post template generator for  Jekyll blogging engine.
+
+ Basic functionality :
+ - It will generate a markdown file with only YAML Front Matter but no actual post content.
+ - The generated file will be in the format year-month-date-this-is-the-post-title.md.
+ - The generated file will be copied into _posts folder.
+ - The file will have basic YAML Front Matter.
+    ---
+    layout : default
+    title  : This is the post title
+    ---
+ - For the above functionalities, mrhyde should accept the following switces from the commandline.
+    -   --title "Title String" // This switch is compulsory
+    -   --layout <layout-file-name> //Assuming that you have that layout in your _layouts folder.
+    -   --dest <dest-path>
+    -   --date <date-string>
+    If --layout is not given then that section will be left empty.
+    If --dest is not given then the generated file will be copied over to _posts folder.
+    If --date is empty then current date is chosen.
+    Draft feature :
+      --draft - If enabled, then the generated file is copied over to _drafts folder instead of _posts folder.
+

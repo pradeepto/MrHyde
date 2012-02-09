@@ -7,6 +7,7 @@ require 'fileutils'
   opt :layout, "Layout", :default => "default"
   opt :date, "Post date in YYYY-MM-DD format. Current date is set as default", :default => Time.new.strftime("%Y-%m-%d")
   opt :draft, "Create a draft for the future post. (this will copy the post templated in _drafts folder.)"
+  opt :tags, "Tags for this post.", :type => :strings, :multi => true
 end
 
 Trollop::die :title, "must be provided." if !@opts[:title]
@@ -17,8 +18,9 @@ filename << (filename.end_with?(".") ? "md" : ".md")
 
 post = File.open(filename, 'w') do |f|
    f.puts "---"
-   f.puts "layout : " << @opts[:layout].to_s
-   f.puts "title : " <<  @opts[:title]
+   f.puts "layout: " << @opts[:layout].to_s
+   f.puts "title: " <<  @opts[:title]
+   f.puts "tags: " << @opts[:tags].join(", ") if @opts[:tags]
    f.puts "---"
 end
 

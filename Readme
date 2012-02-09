@@ -17,4 +17,4 @@
     If --date is empty then current date is chosen.
     Draft feature :
        --draft - If enabled, then the generated file is copied over to _drafts folder instead of _posts folder.
-
+    - --tags tag1 tag2 tag3  
